@@ -2,107 +2,101 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="790004359949-3qom4g76sj6jev0uo4qj7kb4rfpa1q8k.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/athomsiteslogo.png" type="image/icon type">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" integrity="" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/js/ngDialog.min.js"></script> -->
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="styles.css" />
     <script text="type/javascript" src="script.js"></script>
+    <title>To-Do List</title>
 </head>
 
 <body>
+    <!-- navigation bar; should be on all pages -->
 
-    <!-- navigation bar; all pages -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="http://athomsites.com">athom sites</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://athomsites.com">athom sites</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="nav navbar-nav navbar-right ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Login</a>
+            <ol class="nav navbar-nav navbar-right ml-auto">
+                <li class="nav-item active">
+                    What To-Do
                 </li>
-            </ul>
+            </ol>
         </div>
     </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="intro col-12">
+                <h1>To-Do List</h1>
+                <div>
+                    <div class="border1"></div>
+                    <!-- <div c </div> </div> -->
+                </div>
+                <div class="row">
+                    <div class="helpText">
+                        <p id="third">Enter text into the input field and select the category of the task to add items to your list. Click the item to mark it as completed. If you wish to remove the item from your list, click the X.</p>
+                        <!-- <p id="second">Click the item to mark it as complete.</p>
+                        <p id="third">Click the "X" to remove the item from your list.</p> -->
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <!-- <div class="item-input-box"> -->
+                    <input id="userInput" type="text" placeholder="New item..." maxlength="27">
+                    <div class="dropdown">
+                        <select name="myDropdown" id="dropbtn" class="dropdown-content" onchange="getDropDownInput()">
+                                    <option value="work" class="selected">Work</option>
+                                    <option value="school">School</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="other">Other</option>
+                                </select>
+                    </div>
+                    <button id="enter" name="Add"></button>
+                    <!-- </div> -->
+                </div>
 
-    <h2>Welcome to athom sites! Please login below or <a href="create.html">create a new account</a>.</h2>
+                <!-- Empty List -->
+                <div class="row">
+                    <div class="listItems row">
+                        <br>
+                        <!-- <h3>Work:</h3>
+                        <ul id="Work" class="row Work offset-0 col-sm-8 offset-sm-2">
+                        </ul>
+                        <h3>School:</h3>
+                        <ul class="row School offset-0 col-sm-8 offset-sm-2">
+                        </ul>
+                        <h3>Personal:</h3>
+                        <ul class="row Personal offset-0 col-sm-8 offset-sm-2">
+                        </ul>
+                        <h3>Other:</h3> -->
+                        <ul class="row offset-0 col-sm-8 offset-sm-2">
+                        </ul>
+                    </div>
+                </div>
 
-    <br>
-
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-        function onSignIn(googleUser) {
-            // Useful data for your client-side scripts:
-            var profile = googleUser.getBasicProfile();
-            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-            console.log('Full Name: ' + profile.getName());
-            console.log('Given Name: ' + profile.getGivenName());
-            console.log('Family Name: ' + profile.getFamilyName());
-            console.log("Image URL: " + profile.getImageUrl());
-            console.log("Email: " + profile.getEmail());
-
-            // The ID token you need to pass to your backend:
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log("ID Token: " + id_token);
-        }
-    </script>
-
-    <!-- <script type="text/ng-template" id="modallogindialogId"> -->
-    <div id="content">
-        <!-- <div class="container">
-            <button type="button" name="google-login-button" formaction="google-login-javascript-api.html"><a href="google-login-javascript-api.html">Sign in with Google</a></button>
-        </div> -->
-
-        <br>
-
-        <div class="container">
-            <form ng-submit="LoginModalCtrl.submit(_email, _password)">
-                <label>Username/Email</label>
-                <input type="email" ng-model="_email" />
-                <!-- <input id="weatherSubmit" type="submit" value="Submit"></input> -->
-
-                <label><t>Password</label>
-                <input type="password" ng-model="_password" />
-                <!-- <input id="weatherSubmit" type="submit" value="Submit"></input> -->
-            </form>
-            <button>Submit</button>
-            <button ng-click="LoginModalCtrl.cancel()">Cancel</button>
-        </div>
-    </div>
-
-    <!-- footer; all pages -->
-    <footer>
-        <div class="f-container">
-            <div id="github-link-cont">
-                <a href="https://github.com/alyssathomason/lab2-javascript-alyssathomason.git" id="github-link">GitHub:
-                    alyssathomason/lab2...git</a>
             </div>
-            <div id="linkedin-link-cont">
-                <a href="https://www.linkedin.com/in/alyssa-thomason/" id="linkedin-link">LinkedIn: Alyssa Thomason</a>
-            </div>
-            <br>
-            <p class="copyright"> © 2019 athom sites, Inc.</p>
-        </div>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" integrity="" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.3.12/js/ngDialog.min.js"></script> -->
-        <!-- <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script> -->
-        <script text="type/javascript" src="script.js"></script>
-    </footer>
+            <script type="text/javascript" src="script.js"></script>
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
+
+<footer>
+    <div class="f-container">
+        <div id="github-link-cont">
+            <a href="https://github.com/creative2" id="github-link">GitHub:
+                alyssathomason</a>
+        </div>
+        <div id="linkedin-link-cont">
+            <a href="https://www.linkedin.com/in/alyssa-thomason/" id="linkedin-link">LinkedIn: Alyssa Thomason</a>
+        </div>
+        <br>
+        <p class="copyright"> © 2019 Alyssa Thomason, Inc.</p>
+    </div>
+</footer>
 
 </html>

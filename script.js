@@ -1,128 +1,96 @@
-var app = angular.module('myapp', ['ui.router', 'ngDialog']);
-app.config(function($stateProvider) {
+// var ddInput;
+/* When the user clicks on the button,
+toggle between hiding and selecteding the dropdown content */
+function getDropDownInput() {
+    document.getElementById("dropbtn").classList.toggle("selected");
+}
 
-    $stateProvider
-        .state('welcome', {
-            url: '/welcome',
-            // ...
-            data: {
-                requireLogin: false
-            },
-            views: {
-                "viewA": { template: "<p>Hello world from view a</p>" },
-                "viewB": { template: "<p>Hello world from view b</p>" }
+// Close the dropdown menu if the user changes the value the dropdown menu is on
+window.onchange = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        // ddInput = dropdowns.options[dropdowns.selectedIndex].text;
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('selected')) {
+                openDropdown.classList.remove('selected');
             }
-        })
-        .state('app', {
-            abstract: true,
-            // ...
-            data: {
-                requireLogin: true // this property will apply to all children of 'app'
-            }
+        }
+    }
+}
 
-        })
-        .state('app.dashboard', {
-            url: '/app',
-            views: {
-                "viewA": { template: "<p>You already logged in. Hello world from view a</p>" },
-                "viewB": { template: "<p>You already logged in.Hello world from view b</p>" }
-            }
-            // child state of `app`
-            // requireLogin === true
-        })
+function getSelectedValue() {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    selected = dropdowns.options[dropdowns.selectedIndex].text;
+    return selected.value;
+}
 
-});
-app.config(function($httpProvider) {
+var dropDownSelect = document.getElementById("dropbtn");
+var enterButton = document.getElementById("enter");
+var input = document.getElementById("userInput");
+var ul = document.querySelector("ul");
+var item = document.getElementsByTagName("li");
 
-    $httpProvider.interceptors.push(function($timeout, $q, $injector) {
-        var loginModal, $http, $state;
+function inputLength() {
+    return input.value.length;
+}
 
-        // this trick must be done so that we don't receive
-        // `Uncaught Error: [$injector:cdep] Circular dependency found`
-        $timeout(function() {
-            loginModal = $injector.get('loginModal');
-            $http = $injector.get('$http');
-            $state = $injector.get('$state');
-        });
+function listLength() {
+    return item.length;
+}
 
-        return {
-            responseError: function(rejection) {
-                if (rejection.status !== 401) {
-                    return rejection;
-                }
+function createListElement() {
+    var li = document.createElement("li"); // creates an element "li"
+    li.appendChild(document.createTextNode(input.value)); //makes text from input field the li text
+    li.appendChild(document.createTextNode(" ("));
+    li.appendChild(document.createTextNode(dropDownSelect.value));
+    li.appendChild(document.createTextNode(")"));
 
-                var deferred = $q.defer();
+    ul.appendChild(li); //adds li to ul
+    input.value = ""; //Reset text input field
 
-                loginModal()
-                    .then(function() {
-                        deferred.resolve($http(rejection.config));
-                    })
-                    .catch(function() {
-                        $state.go('welcome');
-                        deferred.reject(rejection);
-                    });
 
-                return deferred.promise;
-            }
-        };
-    });
-
-});
-app.controller('LoginModalCtrl', function($scope) {
-
-    this.cancel = $scope.$dismiss;
-
-    this.submit = function(email, password) {
-        var user = { email: email, password: password };
-        $rootScope.currentUser = user;
-    };
-
-});
-app.service('loginModal', function(ngDialog, $rootScope) {
-
-    function assignCurrentUser(user) {
-        $rootScope.currentUser = user;
-        return user;
+    //START STRIKETHROUGH
+    // because it's in the function, it only adds it for new items
+    function crossOut() {
+        li.classList.toggle("done");
     }
 
-    return function() {
-        var instance = ngDialog.openConfirm({
-            template: '<div>\
-                  <form ng-submit="LoginModalCtrl.submit(_email, _password)">\
-                    <input type="email" ng-model="_email" />\
-                    <input type="password" ng-model="_password" />\
-                    <button>Submit</button>\
-                  </form>\
-                  <button ng-click="LoginModalCtrl.cancel()">Cancel</button>\
-                </div>',
-            controller: 'LoginModalCtrl',
-            controllerAs: 'LoginModalCtrl',
-            plain: true
-        });
-
-        return instance.then(assignCurrentUser);
-    };
-
-});
-
-app.run(function($rootScope, $state, loginModal) {
-
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-        var requireLogin = toState.data.requireLogin;
-
-        if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
-            event.preventDefault();
-
-            loginModal()
-                .then(function() {
-                    return $state.go(toState.name, toParams);
-                })
-                .catch(function() {
-                    return $state.go('welcome');
-                });
-        }
-    });
-});
+    li.addEventListener("click", crossOut);
+    //END STRIKETHROUGH
 
 
-// secret: XABNqbqsSi7LKB6noMKDCro2
+    // START ADD DELETE BUTTON
+    var dBtn = document.createElement("button");
+    dBtn.appendChild(document.createTextNode("X"));
+    li.appendChild(dBtn);
+    dBtn.addEventListener("click", deleteListItem);
+    // END ADD DELETE BUTTON
+
+
+    //ADD CLASS DELETE (DISPLAY: NONE)
+    function deleteListItem() {
+        li.classList.add("delete")
+    }
+    //END ADD CLASS DELETE
+}
+
+function addListAfterClick() {
+    if (inputLength() > 0) { //makes sure that an empty input field doesn't create a li
+        createListElement();
+    }
+}
+
+function addListAfterKeypress(event) {
+    if (inputLength() > 0 && event.which === 13) { //this now looks to see if you hit "enter"/"return"
+        //the 13 is the enter key's keycode, this could also be display by event.keyCode === 13
+        createListElement();
+    }
+}
+
+dropDownSelect.addEventListener("change", getSelectedValue);
+
+enterButton.addEventListener("click", addListAfterClick);
+
+input.addEventListener("keypress", addListAfterKeypress);

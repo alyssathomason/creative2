@@ -1,17 +1,14 @@
-/* general body css */
-
 body {
     background-color: #ffffff;
-    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family: rockwell, sans-serif !important;
     font-style: normal;
-    box-sizing: border-box;
-    position: block;
+    /* box-sizing: border-box;
+    position: block; */
     display: flex;
     flex-direction: column;
+    padding: none;
+    margin: none;
 }
-
-
-/* navbar css */
 
 .navbarNav {
     position: fixed;
@@ -22,216 +19,137 @@ body {
 }
 
 .navbar-brand {
-    font-size: 40px;
-    color: rgb(255, 255, 255) !important;
-}
-
-img.navbar-brand {
-    width: 25%;
+    font-size: 35px;
+    color: rgb(154, 159, 206) !important;
 }
 
 a.nav-link.link-active {
-    font-size: 40px !important;
+    font-size: 30px;
     font-feature-settings: "cpsp";
     color: #ffffff !important;
-    background-image: linear-gradient(rgba(138, 139, 145, 0.787), rgba(199, 200, 211, 0.068));
+    background-image: linear-gradient(rgba(154, 159, 206, 0.787), rgba(179, 183, 214, 0.068));
     top: 50%;
     bottom: 50%;
 }
 
 a.nav-link {
-    font-size: 40px;
-    color: rgb(138, 139, 145) !important;
+    font-size: 30px;
+    color: rgb(154, 159, 206) !important;
     top: 50%;
     bottom: 50%;
 }
 
-h2 {
-    font-size: 200%;
-    padding: 10px;
-    color: #ffffff;
-    text-align: center;
-}
-
-
-/* headers css */
-
-h1 {
-    padding: 10px;
-    color: #353A3F;
-    text-align: center;
-}
-
-h2 {
-    font-size: 200%;
-    padding: 10px;
-    color: #353A3F;
-    text-align: center;
-}
-
-
-/* content css */
-
-#content {
-    height: 700PX;
-    display: block;
-    float: center;
-    flex-grow: 1;
-}
-
-
-/* google login */
-
-.g-signin2 {
-    width: 30%;
-    height: 2rem;
-    float: center;
-}
-
-#google-login-button {
-    width: 30%;
-    height: 2rem;
-}
-
-body {
-    margin: 0;
-    font-size: 14px;
-    color: #333333;
-}
-
-#login-button {
-    width: 200px;
-    margin: auto auto;
-    display: block;
-}
-
-#user-information {
-    width: 400px;
-    display: none;
-    margin: 50px auto;
-}
-
-#user-information div {
-    margin: 0 0 20px 0;
-}
-
-#user-information div label {
-    display: inline-block;
-    vertical-align: middle;
-    width: 100px;
-    font-weight: 700;
-}
-
-#user-information div span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-
-/* search bar css */
-
-
-/* Style the search box inside the navigation bar */
-
-#input {
-    float: center;
-    padding: 6px;
+li.nav-item {
+    list-style: none;
+    /* padding: 10px 20px; */
+    color: #000000;
+    text-transform: none;
+    font-weight: none;
     border: none;
-    margin-top: 8px;
-    font-size: 25px !important;
+    /* margin-bottom: 10px; */
+    background: none;
+    font-size: 30px;
+    padding: none;
 }
 
-#input input[type=text] {
-    float: center;
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 25px;
-    border: 1px solid rgb(138, 139, 145);
-}
-
-#input button {
-    float: center !important;
-    /* padding: 6px; */
-    /* margin-top: 8px; */
-    background: #ddd;
-    font-size: 25px;
+li.nav-item:hover {
+    list-style: none;
+    /* padding: 10px 20px; */
+    color: #000000;
+    text-transform: none;
+    font-weight: none;
     border: none;
-    cursor: pointer;
-}
-
-#input button:hover {
-    background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-    #input {
-        border-color: rgb(138, 139, 145) !important;
-        float: none;
-    }
-    #input button {
-        float: none;
-        display: block;
-        text-align: center;
-        width: 100%;
-        margin: 0;
-        padding: 14px;
-    }
-    #input input[type=text] {
-        border: 1px solid rgb(138, 139, 145);
-    }
+    /* margin-bottom: 10px; */
+    background: none;
+    padding: none;
 }
 
 
-/* output format */
-
-.container {
-    float: center;
-    margin: auto;
+/* img {
     width: 100%;
     text-align: center;
-    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+} */
+
+h1 {
+    /* font-weight: 600; */
+    color: #000000;
+    text-align: center;
 }
 
-#weatherResults {
-    font-size: 16px;
-    color: #353A3F;
-    background-color: #ffffff;
+h2 {
+    /* font-weight: 200; */
+    color: #000000;
+    text-align: center;
 }
 
-#forecastResults {
-    font-size: 16px;
-    color: #353A3F;
-    background-color: #ffffff;
+h3 {
+    /* font-weight: 200; */
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    margin: 20px;
 }
 
+a#pagelink {
+    display: block;
+    font-size: 40px;
+    text-align: center;
+    color: #ffffff;
+}
 
-/* footer css */
+a#github-link {
+    display: block;
+    font-size: 15px;
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+a#linkedin-link {
+    display: block;
+    font-size: 15px;
+    color: #ffffff;
+    padding-left: 5px;
+    float: right;
+}
+
+p {
+    font-size: 15px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px;
+    margin-block-end: 0px !important;
+}
 
 #github-link-cont {
     padding-top: 5px;
     padding-left: 5px;
     float: left;
-    color: white;
 }
 
 #linkedin-link-cont {
     padding-top: 5px;
     padding-right: 5px;
     float: right;
-    color: white;
 }
 
 footer {
-    min-width: 100%;
-    min-height: calc(100vh - 70px);
-    padding: 4px;
+    width: 100%;
+    /* height: 100%; */
+    /* padding: 4px; */
     flex-shrink: 0;
     margin-top: auto;
     /* margin-top: -50px; */
+    position: fixed;
+    bottom: 0;
+    /* float: center; */
+    flex: none;
+    left: 0;
 }
 
 .f-container {
-    background-image: linear-gradient(to bottom right, rgba(53, 58, 63, 0.934), rgba(53, 58, 63, 0.776));
+    background-image: linear-gradient(to bottom right, rgba(158, 162, 197, 0.39), rgba(158, 162, 197, 0.637));
 }
 
 .copyright {
@@ -241,4 +159,234 @@ footer {
     padding-bottom: 10px;
     padding-top: 0px;
     margin-block-end: 0px !important;
+}
+
+.intro {
+    margin: 30px 0px;
+    font-weight: bold;
+}
+
+.row {
+    flex-shrink: 0;
+    width: fill;
+}
+
+.helpText {
+    background-color: rgba(154, 159, 206, 0.787);
+    width: 100%;
+    float: center;
+    text-align: center;
+}
+
+
+/* h1 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 800;
+} */
+
+p {
+    font-weight: 600;
+}
+
+#first {
+    margin-top: 10px;
+    color: #FFCD5D;
+}
+
+#second {
+    color: #51DF70;
+}
+
+#third {
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+#enter {
+    width: 100%;
+    flex: 0;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    background-color: #025F70;
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75 ease;
+    font-weight: normal;
+}
+
+#enter:hover {
+    background-color: rgba(154, 159, 206, 0.787);
+    color: #FFCD5D;
+}
+
+.listItems {
+    width: 100%;
+}
+
+ul {
+    text-align: left;
+    margin-top: 20px;
+    width: 600px;
+    flex: 3;
+}
+
+.done {
+    width: fill;
+    background-color: rgba(154, 159, 206, 0.787);
+}
+
+li {
+    width: fill;
+    list-style: none;
+    padding: 10px 10px;
+    color: #000000;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: 2px solid rgba(154, 159, 206, 0.787);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #4EB9CD;
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5 ease;
+}
+
+li:hover {
+    background: rgba(154, 159, 206, 0.787);
+}
+
+li>button {
+    font-weight: normal;
+    background: none;
+    border: none;
+    float: right;
+    color: #025f70;
+    font-weight: 800;
+    height: 100%;
+}
+
+.item-input-box {
+    display: flex;
+    min-width: fill;
+    height: 100%;
+    flex-direction: row;
+}
+
+#userInput {
+    flex: 0;
+    flex-grow: 3;
+    width: fill;
+    margin: 2px;
+    border-radius: 2px;
+    min-width: 55%;
+}
+
+
+/* input {
+    border-radius: 5px;
+    min-width: 55%;
+    padding: 5px; 
+    border: none;
+}
+*/
+
+.done {
+    background: #51DF70 !important;
+    color: #00891E;
+}
+
+.delete {
+    display: none;
+}
+
+
+/* Dropdown Button */
+
+#dropbtn {
+    flex: 1;
+    background-color: rgba(154, 159, 206, 0.787);
+    color: #000000;
+    padding-top: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Dropdown button on hover & focus */
+
+#dropbtn:hover,
+#dropbtn:focus {
+    background-color: rgba(154, 159, 206, 0.787);
+}
+
+#dropbtn {
+    /* flex: 1; */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* #browsers {
+    flex: 1;
+    width: 100%;
+} */
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    flex-grow: 1;
+    flex: 1;
+    width: 100%;
+    height: 200%;
+    /* position: absolute; */
+    /* background-color: rgba(154, 159, 206, 0.787); */
+    /* width: 100%; */
+    padding-top: 5px;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    /* display:; */
+    /* position: absolute; */
+    background-color: #f1f1f1;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    /* padding: 12px 16px; */
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #ddd
+}
+
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+.selected {
+    display: block;
 }

@@ -1,0 +1,260 @@
+/* general body css */
+
+html,
+body {
+    background-color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    /* box-sizing: border-box; */
+    /* position: block; */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+/* navbar css */
+
+.navbarNav {
+    position: fixed;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    flex: none;
+}
+
+.navbar-brand {
+    font-size: 35px;
+    color: rgb(87, 28, 121) !important;
+}
+
+
+/* img.navbar-brand {
+    width: 25%;
+} */
+
+a.nav-link.link-active {
+    font-size: 30px;
+    font-feature-settings: "cpsp";
+    color: rgb(87, 28, 121) !important;
+    /* background-image: linear-gradient(rgba(154, 159, 206, 0.787), rgba(179, 183, 214, 0.068)); */
+    top: 50%;
+    bottom: 50%;
+}
+
+a.nav-link {
+    font-size: 30px;
+    color: rgba(87, 28, 121, 0.386) !important;
+    top: 50%;
+    bottom: 50%;
+}
+
+img {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* headers css */
+
+h1 {
+    padding: 10px;
+    color: #353A3F;
+    text-align: center;
+}
+
+h2 {
+    font-size: 200%;
+    padding: 20px;
+    color: #353A3F;
+    text-align: center;
+}
+
+
+/* content css */
+
+#content {
+    height: 100%;
+    display: block;
+    float: center;
+    flex-grow: 1;
+    vertical-align: bottom;
+}
+
+
+/* google login */
+
+.g-signin2 {
+    width: 30%;
+    height: 2rem;
+    float: center;
+}
+
+#google-login-button {
+    width: 30%;
+    height: 2rem;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+    color: #333333;
+}
+
+#login-button {
+    width: 200px;
+    margin: auto auto;
+    display: block;
+}
+
+#user-information {
+    width: 400px;
+    display: none;
+    margin: 50px auto;
+}
+
+#user-information div {
+    margin: 0 0 20px 0;
+}
+
+#user-information div label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    font-weight: 700;
+}
+
+#user-information div span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button {
+    margin: 1px;
+    margin-top: 4px;
+}
+
+
+/* search bar css */
+
+
+/* Style the search box inside the navigation bar */
+
+#input {
+    float: center;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    font-size: 25px !important;
+}
+
+#input input[type=text] {
+    float: center;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 25px;
+    border: 1px solid rgb(138, 139, 145);
+}
+
+#input button {
+    float: center !important;
+    /* padding: 6px; */
+    /* margin-top: 8px; */
+    background: #ddd;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+#input button:hover {
+    background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+    #input {
+        border-color: rgb(138, 139, 145) !important;
+        float: none;
+    }
+    #input button {
+        float: none;
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+    #input input[type=text] {
+        border: 1px solid rgb(138, 139, 145);
+    }
+}
+
+
+/* output format */
+
+.container {
+    float: center;
+    width: 100%;
+    text-align: center;
+    max-width: 100%;
+    margin: 20px;
+}
+
+
+/* filler */
+
+.filler {
+    background-color: rgb(12, 0, 41) !important;
+    /*  background-image: linear-gradient(rgb(12, 0, 41), rgb(15, 0, 52)); */
+    /* min-height: 100%; */
+    /* display: flex;
+    flex-direction: column; */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    flex: auto;
+}
+
+
+/* footer css */
+
+#github-link-cont {
+    padding-top: 5px;
+    padding-left: 5px;
+    float: left;
+    color: white;
+}
+
+#linkedin-link-cont {
+    padding-top: 5px;
+    padding-right: 5px;
+    float: right;
+    color: white;
+}
+
+footer {
+    /* min-height: calc(100vh - 70px); */
+    /* padding: 4px; */
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: auto;
+    margin-top: -50px;
+    position: fixed;
+    bottom: 0;
+    flex: none;
+}
+
+.f-container {
+    /* background-image: linear-gradient(to bottom right, rgba(53, 58, 63, 0.934), rgba(53, 58, 63, 0.776)); */
+    background-color: #ffffff;
+}
+
+.copyright {
+    font-size: 15px;
+    text-align: center;
+    color: rgb(87, 28, 121);
+    padding-bottom: 10px;
+    padding-top: 0px;
+    margin-block-end: 0px !important;
+}
